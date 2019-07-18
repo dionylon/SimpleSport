@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/light" >
+
+        <LinearLayout
+            android:id="@+id/title_lly_back"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:descendantFocusability="beforeDescendants"
+            android:gravity="center_vertical"
+            android:onClick="onBackClick"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingStart="5dp" >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:clickable="false"
+                android:scaleType="centerInside"
+                android:src="@drawable/back" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/title_center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="运动轨迹"
+                android:textColor="@color/colorDark"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <com.amap.api.maps.MapView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title" >
+    </com.amap.api.maps.MapView>
+
+    <RadioGroup
+        android:id="@+id/record_show_activity_trace_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/record_show_activity_origin_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textColor="@color/colorDark"
+                android:text="原始轨迹" />
+
+            <View
+                android:layout_width="15dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center_vertical"
+                android:background="#0000FF"
+                android:visibility="invisible"
+                android:paddingLeft="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/record_show_activity_grasp_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorDark"
+                android:text="轨迹纠偏" />
+
+            <View
+                android:layout_width="15dp"
+                android:layout_height="13dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/grasp_flag"
+                android:visibility="invisible"
+                android:paddingLeft="15dp" >
+            </View>
+        </LinearLayout>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/record_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.9"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"
+        android:text="距离：0.00公里，用时：0分钟\n平均配速：0.00米/秒"
+        android:textSize="14sp"
+        android:background="@drawable/round_rectangle"
+        android:textColor="@color/colorDark"
+        android:padding="5dp"
+        />
+    
+    <ToggleButton
+        android:id="@+id/displaybtn"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:descendantFocusability="beforeDescendants"
+        android:gravity="center"
+        android:background="@drawable/button_start"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:textOff="Go!"
+        android:textOn="" >
+    </ToggleButton>
+</RelativeLayout>
